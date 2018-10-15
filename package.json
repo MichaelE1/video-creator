@@ -1,0 +1,24 @@
+{
+  "name": "video-creator",
+  "version": "1.0.0",
+  "description": "Simple NodeJS utility to create videos from images & mp3 files",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelE1/video-creator.git"
+  },
+  "author": "Michael Esteban",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelE1/video-creator/issues"
+  },
+  "homepage": "https://github.com/MichaelE1/video-creator#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "pug": "^2.0.3"
+  }
+}
