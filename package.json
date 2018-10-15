@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MichaelE1/video-creator#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "express-fileupload": "^1.0.0-alpha.1",
     "fluent-ffmpeg": "^2.1.2",
     "pug": "^2.0.3"
   }
