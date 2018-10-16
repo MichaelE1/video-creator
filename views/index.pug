@@ -5,14 +5,15 @@ html
     link(rel='stylesheet', href='css/styles.css')
     
   body
-    h1 Let's make a video!
+    h1 Let's make a video
+    img(src='img/wizard.jpg')
     form#uploadForm(ref='uploadForm', action='/upload', method='post', enctype='multipart/form-data')
       label Image file
       br
       input(type='file', name='imgFile')
       br
 
-      label Sound file
+      label Sound / Video file
       br
       input(type='file', name='soundFile')
       br

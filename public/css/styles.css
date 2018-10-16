@@ -3,7 +3,7 @@ body {
   flex-direction: column; 
   justify-content: center;
   align-items: center; 
-  height: 500px;
+  height: 700px;
 }
 
 h1 {
@@ -23,4 +23,8 @@ input[type=submit] {
 
 label {
   font-size: 1.4em;
+}
+
+img {
+  margin-bottom: 20px;
 }

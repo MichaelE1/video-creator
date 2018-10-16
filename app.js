@@ -30,14 +30,28 @@ app.post('/upload', function(req, res) {
       return res.status(500).send(err);
     }
 
-    const createVideo = new Promise((resolve, reject) => {
+    const publicPath = __dirname + "/public";
+
+    const getAudio = new Promise((resolve, reject) => {
       ffmpeg()
-        .input(`./public/${imgFile.name}`)
-        .input(`./public/${soundFile.name}`)
+        .input(`${publicPath}/${soundFile.name}`)
+        .toFormat('mp3')
         .on('end', () => {
           resolve();
         })
-        .save('./public/video.mp4')
+        .saveToFile(`${publicPath}/sound.mp3`)
+    });
+
+    await getAudio;
+
+    const createVideo = new Promise((resolve, reject) => {
+      ffmpeg()
+        .input(`${publicPath}/${imgFile.name}`)
+        .input(`${publicPath}/sound.mp3`)
+        .on('end', () => {
+          resolve();
+        })
+        .save(`${publicPath}/video.mp4`)
     });
 
     await createVideo;
