@@ -67,6 +67,10 @@ app.get('/video', (req, res) => {
   res.render('video');
 });
 
+app.get('/videoTest', (req, res) => {
+  res.render('videoTest');
+});
+
 app.listen(3000, () => {
   console.log('Running on port 3000')
 });
