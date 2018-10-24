@@ -46,12 +46,22 @@ app.post('/upload', function(req, res) {
 
     const createVideo = new Promise((resolve, reject) => {
       ffmpeg()
-        .input(`${publicPath}/${imgFile.name}`)
-        .input(`${publicPath}/sound.mp3`)
-        .on('end', () => {
-          resolve();
-        })
-        .save(`${publicPath}/video.mp4`)
+      .input(`${publicPath}/${imgFile.name}`)
+      .input(`${publicPath}/sound.mp3`)
+      .on('end', () => {
+        resolve();
+      })
+      .outputOptions([
+        '-loop 1',
+        "-vf scale='min(1280,iw)':-2,format=yuv420p",
+        '-c:v libx264',
+        '-preset veryslow',
+        '-profile:v main',
+        '-c:a aac',
+        '-movflags',
+        '+faststart'
+      ])
+      .saveToFile(`${publicPath}/video.mp4`)
     });
 
     await createVideo;
